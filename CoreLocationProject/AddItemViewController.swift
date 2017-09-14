@@ -11,7 +11,8 @@ import UIKit
 
 class AddItemViewController: UITableViewController {
 
-    @IBOutlet weak var itemLabel: UITextField!
+    
+    @IBOutlet weak var nameField: UITextField!
     
     var delegate: AddItemDel?
     var item: String?
@@ -19,7 +20,7 @@ class AddItemViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemLabel.text = item
+        nameField.text = item
     }
 
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
@@ -27,6 +28,6 @@ class AddItemViewController: UITableViewController {
     }
     
     @IBAction func savePressedButton(_ sender: UIBarButtonItem) {
-        delegate?.savePressedbutton(by: self, with: itemLabel.text!, from: indexPath)
+        delegate?.savePressedbutton(by: self, with: nameField.text!, from: indexPath)
     }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import CoreLocation
+import MapKit
 
 
 class MainViewController: UITableViewController, AddItemDel{
