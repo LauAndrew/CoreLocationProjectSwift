@@ -85,6 +85,15 @@ class MapViewController: UIViewController, UISearchBarDelegate{
                 annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
                 self.mapView.addAnnotation(annotation)
                 
+                
+                
+                let area = CLCircularRegion(center: annotation.coordinate, radius: 200, identifier: "geofence")
+                
+                self.mapView.removeOverlays(self.mapView.overlays)
+                self.locationManager.startMonitoring(for: area)
+                let circle = MKCircle(center: annotation.coordinate, radius: area.radius)
+                self.mapView.add(circle)
+                
                 //Zooming in on annotation
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
                 let span = MKCoordinateSpanMake(0.1, 0.1)
@@ -111,6 +120,7 @@ class MapViewController: UIViewController, UISearchBarDelegate{
         locationManager.startMonitoring(for: region)
         let circle = MKCircle(center: coordinate, radius: region.radius)
         mapView.add(circle)
+        
 
     }
     
@@ -130,6 +140,10 @@ class MapViewController: UIViewController, UISearchBarDelegate{
         content.sound = .default()
         let request = UNNotificationRequest(identifier: "notif", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
+    func startMonitoring(for region: CLRegion){
         
     }
 
