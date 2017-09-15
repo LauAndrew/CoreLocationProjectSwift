@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import MapKit
+import CoreLocation
 
 
 class MainViewController: UITableViewController, AddItemDel{
+
 
     var bucket = [Tasks]()
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
