@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4909BCFB1F6B7EF800BD9A7C /* MapViewDel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909BCFA1F6B7EF800BD9A7C /* MapViewDel.swift */; };
 		4928975F1F6AFA3900DF00CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928975E1F6AFA3900DF00CB /* AppDelegate.swift */; };
 		492897641F6AFA3900DF00CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492897621F6AFA3900DF00CB /* Main.storyboard */; };
 		492897671F6AFA3900DF00CB /* CoreLocationProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 492897651F6AFA3900DF00CB /* CoreLocationProject.xcdatamodeld */; };
@@ -17,6 +18,8 @@
 		492897911F6AFC9500DF00CB /* AddItemDel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928978F1F6AFC9500DF00CB /* AddItemDel.swift */; };
 		492897921F6AFC9500DF00CB /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492897901F6AFC9500DF00CB /* AddItemViewController.swift */; };
 		492897941F6AFCA300DF00CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492897931F6AFCA300DF00CB /* ViewController.swift */; };
+		493A8D411F6B678900618195 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A8D401F6B678900618195 /* mapViewController.swift */; };
+		493A8D441F6B6A5000618195 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493A8D431F6B6A5000618195 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4909BCFA1F6B7EF800BD9A7C /* MapViewDel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDel.swift; sourceTree = "<group>"; };
 		4928975B1F6AFA3900DF00CB /* CoreLocationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreLocationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4928975E1F6AFA3900DF00CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		492897631F6AFA3900DF00CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		4928978F1F6AFC9500DF00CB /* AddItemDel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemDel.swift; sourceTree = "<group>"; };
 		492897901F6AFC9500DF00CB /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		492897931F6AFCA300DF00CB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		493A8D401F6B678900618195 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
+		493A8D431F6B6A5000618195 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493A8D441F6B6A5000618195 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +94,7 @@
 				492897751F6AFA3900DF00CB /* CoreLocationProjectTests */,
 				492897801F6AFA3900DF00CB /* CoreLocationProjectUITests */,
 				4928975C1F6AFA3900DF00CB /* Products */,
+				493A8D421F6B6A5000618195 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,7 +114,9 @@
 				492897931F6AFCA300DF00CB /* ViewController.swift */,
 				4928978F1F6AFC9500DF00CB /* AddItemDel.swift */,
 				492897901F6AFC9500DF00CB /* AddItemViewController.swift */,
+				493A8D401F6B678900618195 /* mapViewController.swift */,
 				4928975E1F6AFA3900DF00CB /* AppDelegate.swift */,
+				4909BCFA1F6B7EF800BD9A7C /* MapViewDel.swift */,
 				492897621F6AFA3900DF00CB /* Main.storyboard */,
 				492897681F6AFA3900DF00CB /* Assets.xcassets */,
 				4928976A1F6AFA3900DF00CB /* LaunchScreen.storyboard */,
@@ -132,6 +142,14 @@
 				492897831F6AFA3900DF00CB /* Info.plist */,
 			);
 			path = CoreLocationProjectUITests;
+			sourceTree = "<group>";
+		};
+		493A8D421F6B6A5000618195 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				493A8D431F6B6A5000618195 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +220,16 @@
 				TargetAttributes = {
 					4928975A1F6AFA3900DF00CB = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = XNN3Q98CR2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					492897711F6AFA3900DF00CB = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -270,7 +297,9 @@
 			files = (
 				492897671F6AFA3900DF00CB /* CoreLocationProject.xcdatamodeld in Sources */,
 				492897921F6AFC9500DF00CB /* AddItemViewController.swift in Sources */,
+				4909BCFB1F6B7EF800BD9A7C /* MapViewDel.swift in Sources */,
 				492897911F6AFC9500DF00CB /* AddItemDel.swift in Sources */,
+				493A8D411F6B678900618195 /* mapViewController.swift in Sources */,
 				492897941F6AFCA300DF00CB /* ViewController.swift in Sources */,
 				4928975F1F6AFA3900DF00CB /* AppDelegate.swift in Sources */,
 			);
@@ -426,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XNN3Q98CR2;
 				INFOPLIST_FILE = CoreLocationProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewlau.CoreLocationProject;
@@ -438,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XNN3Q98CR2;
 				INFOPLIST_FILE = CoreLocationProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewlau.CoreLocationProject;

@@ -10,5 +10,5 @@ import UIKit
 
 protocol AddItemDel: class {
     func cancelButtonPressed(by controller: AddItemViewController)
-    func savePressedbutton(by controller: AddItemViewController, with item: String, from indexPath: NSIndexPath?)
+    func savePressedbutton(by controller: AddItemViewController, name: String, location: String, sound: Int, notes: String?, from indexPath: NSIndexPath?)
 }
