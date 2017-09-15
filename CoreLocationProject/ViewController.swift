@@ -164,6 +164,9 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
     func allTaskLocater(){
         let allAnnotations = mapView.annotations
         mapView.removeAnnotations(allAnnotations)
+        let overlays = mapView.overlays
+        mapView.removeOverlays(overlays)
+        
         for task in bucket{
             if let location = task.location {
                 CLGeocoder().geocodeAddressString(location) { (data, error) in
@@ -178,7 +181,7 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
                         dropPin.title = task.name
                         dropPin.subtitle = task.location
                         
-                        let area = CLCircularRegion(center: dropPin.coordinate, radius: 500, identifier: "geofence")
+                        let area = CLCircularRegion(center: dropPin.coordinate, radius: 60, identifier: "geofence")
                         
                         self.locationManager.startMonitoring(for: area)
                         let circle = MKCircle(center: dropPin.coordinate, radius: area.radius)
