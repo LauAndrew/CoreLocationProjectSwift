@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aiK-eS-FjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UaE-F3-zPA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Bucket List-->
+        <!--Reminders-->
         <scene sceneID="SSS-Hw-65b">
             <objects>
                 <tableViewController id="g4w-Cv-WWL" customClass="MainViewController" customModule="CoreLocationProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="bucketCell" id="puT-zp-8AM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="bucketCell" id="puT-zp-8AM">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="puT-zp-8AM" id="4re-Xk-6UB">
-                                    <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="playback" tableViewCell="puT-zp-8AM" id="4re-Xk-6UB">
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -32,8 +32,8 @@
                             <outlet property="delegate" destination="g4w-Cv-WWL" id="6Sd-4W-7Eh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bucket List" id="zqc-Ai-Fmw">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="AS7-C1-rul">
+                    <navigationItem key="navigationItem" title="Reminders" id="zqc-Ai-Fmw">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="AS7-C1-rul">
                             <connections>
                                 <action selector="addButtonPressed:" destination="g4w-Cv-WWL" id="bj9-ju-J5r"/>
                             </connections>
@@ -47,11 +47,11 @@
             </objects>
             <point key="canvasLocation" x="-1079" y="72"/>
         </scene>
-        <!--Add Item-->
+        <!--Detail-->
         <scene sceneID="2aG-wl-0TK">
             <objects>
                 <tableViewController id="Oiv-1F-iRu" customClass="AddItemViewController" customModule="CoreLocationProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Moj-sx-1Uo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Moj-sx-1Uo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,11 +62,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZM5-OC-hf8" id="uhL-fL-XLS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYO-5q-ePR">
-                                                    <rect key="frame" x="8" y="17" width="359" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYO-5q-ePR">
+                                                    <rect key="frame" x="8" y="17" width="359" height="40.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -83,13 +83,13 @@
                             <outlet property="delegate" destination="Oiv-1F-iRu" id="AlV-gD-m9B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Item" id="SkX-t7-aJH">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="fq7-Hs-tjp">
+                    <navigationItem key="navigationItem" title="Detail" id="SkX-t7-aJH">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="fq7-Hs-tjp">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="Oiv-1F-iRu" id="DKM-as-7q4"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="9j4-LH-t0b">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="9j4-LH-t0b">
                             <connections>
                                 <action selector="savePressedButton:" destination="Oiv-1F-iRu" id="PH5-kA-9db"/>
                             </connections>
@@ -134,6 +134,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJg-fh-xtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2033" y="72"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="6EU-Dj-146">
+            <objects>
+                <viewController id="UaE-F3-zPA" customClass="MapViewController" customModule="CoreLocationProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VFC-pF-doC"/>
+                        <viewControllerLayoutGuide type="bottom" id="HDl-BL-QFO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9jd-fs-DlJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rN2-d1-qp5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="UaE-F3-zPA" id="4i5-uC-wMq"/>
+                                    <outletCollection property="gestureRecognizers" destination="O6A-Df-O00" appends="YES" id="xNQ-gi-DLb"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="rN2-d1-qp5" id="eEv-rt-z7I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fh-5S-aNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="O6A-Df-O00">
+                    <connections>
+                        <action selector="addRegion:" destination="UaE-F3-zPA" id="Q9e-wg-fhL"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-2063.1999999999998" y="903.59820089955031"/>
         </scene>
     </scenes>
 </document>

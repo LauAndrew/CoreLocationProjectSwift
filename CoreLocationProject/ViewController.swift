@@ -90,10 +90,10 @@ class MainViewController: UITableViewController, AddItemDel{
             self.bucket.remove(at: indexPath.row)
             tableView.reloadData()
         }
-        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+        let edit = UITableViewRowAction(style: .default, title: "More") { (action, indexPath) in
             self.performSegue(withIdentifier: "AddItem", sender: indexPath)
         }
-        edit.backgroundColor = UIColor.blue
+        edit.backgroundColor = UIColor.lightGray
         return [delete, edit]
     }
     
