@@ -8,17 +8,21 @@
 
 import UIKit
 import CoreData
-
+import CoreLocation
+import MapKit
 
 class MainViewController: UITableViewController, AddItemDel{
 
+    @IBOutlet weak var mapView: MKMapView!
+    
     var bucket = [Tasks]()
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         findAllItems()
+        allTaskLocater()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,4 +116,26 @@ class MainViewController: UITableViewController, AddItemDel{
             print("\(error)")
         }
     }
+    
+    func allTaskLocater(){
+        for task in bucket{
+            let location = task.location
+            CLGeocoder().geocodeAddressString(location!) { (data, error) in
+                
+                if let d = data?[0] {
+                    let loc = CLLocationCoordinate2DMake((d.location?.coordinate.latitude)!, (d.location?.coordinate.longitude)!)
+                    let span = MKCoordinateSpanMake(0.01, 0.01)
+                    let region = MKCoordinateRegion(center: loc, span: span)  //need to zoom in on current location instead
+                    self.mapView.setRegion(region, animated: true)
+            
+                    let dropPin = MKPointAnnotation()
+                    dropPin.coordinate = loc
+                    dropPin.title = task.name
+                    dropPin.subtitle = task.location
+                    self.mapView.addAnnotation(dropPin)
+                }
+            }
+        }
+    }
+    
 }
