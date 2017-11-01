@@ -11,13 +11,15 @@ import CoreData
 import CoreLocation
 import MapKit
 import UserNotifications
+import UserNotificationsUI
 import AVFoundation
 import AudioToolbox
 
 
 
-class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDelegate, MKMapViewDelegate{
-
+class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDelegate, MKMapViewDelegate, UNUserNotificationCenterDelegate {
+    
+    let requestIdentifier = "SampleRequest" //identifier is to cancel the notification request
     
     let locationManager = CLLocationManager()
     var bucket = [Tasks]()
@@ -181,7 +183,7 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
                         dropPin.title = task.name
                         dropPin.subtitle = task.location
                         
-                        let area = CLCircularRegion(center: dropPin.coordinate, radius: 60, identifier: "geofence")
+                        let area = CLCircularRegion(center: dropPin.coordinate, radius: 500, identifier: "geofence")
                         
                         self.locationManager.startMonitoring(for: area)
                         let circle = MKCircle(center: dropPin.coordinate, radius: area.radius)
@@ -208,7 +210,7 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
         let title = "Reminder"
         let message = "There is stuff you need to do!"
         showAlert(title: title, message: message)
-        showNotification(title: title, message: message)
+        triggerNotification(title: title, message: message)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -216,7 +218,7 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
         let message = "Delete completed remiders"
         print(manager)
         showAlert(title: title, message: message)
-        showNotification(title: title, message: message)
+        triggerNotification(title: title, message: message)
     }
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -225,15 +227,15 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
         present(alert, animated: true, completion: nil)
     }
     
-    func showNotification(title: String, message: String) {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = message
-        content.badge = 1
-        content.sound = .default()
-        let request = UNNotificationRequest(identifier: "notif", content: content, trigger: nil)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    }
+//    func showNotification(title: String, message: String) {
+//        let content = UNMutableNotificationContent()
+//        content.title = title
+//        content.body = message
+//        content.badge = 1
+//        content.sound = .default()
+//        let request = UNNotificationRequest(identifier: "notif", content: content, trigger: nil)
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//    }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let circleOverlay = overlay as? MKCircle
@@ -245,5 +247,49 @@ class MainViewController: UITableViewController, AddItemDel, CLLocationManagerDe
         circleRenderer.fillColor = .blue
         circleRenderer.alpha = 0.5
         return circleRenderer
+    }
+    
+    func triggerNotification(title: String, message: String){
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = message
+        content.badge = 1
+        content.sound = .default()
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
+        let request = UNNotificationRequest(identifier:requestIdentifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().add(request){(error) in
+        }
+    }
+    
+    @IBAction func stopNotification(_ sender: AnyObject) {
+        
+        print("Removed all pending notifications")
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [requestIdentifier])
+        
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("Tapped in notification")
+    }
+    
+    //This is key callback to present notification while the app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("Notification being triggered")
+        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
+        //to distinguish between notifications
+        if notification.request.identifier == requestIdentifier{
+            
+            completionHandler( [.alert,.sound,.badge])
+            
+        }
     }
 }

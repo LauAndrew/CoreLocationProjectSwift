@@ -220,7 +220,7 @@
 				TargetAttributes = {
 					4928975A1F6AFA3900DF00CB = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = XNN3Q98CR2;
+						DevelopmentTeam = 6D82L3F58G;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -455,12 +455,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XNN3Q98CR2;
+				DEVELOPMENT_TEAM = 6D82L3F58G;
 				INFOPLIST_FILE = CoreLocationProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrewlau.CoreLocationProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.torodomo.CoreLocationProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -468,12 +469,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XNN3Q98CR2;
+				DEVELOPMENT_TEAM = 6D82L3F58G;
 				INFOPLIST_FILE = CoreLocationProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrewlau.CoreLocationProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.torodomo.CoreLocationProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
